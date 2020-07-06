@@ -155,7 +155,7 @@ buildGameOverScreen()
 
 ### Git
 URls for the project repo and deploy
-[Link Repo](http://github.com)
+[Link Repo](https://github.com/RaquelNascimento96/gameProject_SaveLuke)
 [Link Deploy](http://github.com)
 
 
