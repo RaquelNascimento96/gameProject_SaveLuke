@@ -20,51 +20,32 @@ class Player extends Element {
         }
     }
     moveDown() {
-        if (this.y<400) {
+        if (this.y<300) {
             this.y += 0.5;
         }
     }
     collision(obstacle) {
-        //y axis
-        if (this.y - 10 <= obstacle.y + obstacle.height && this.y >= obstacle.y) {
-            //x axis
-            if (this.x >= obstacle.x && this.x <= obstacle.x + obstacle.width) {
-                //this.sound(play) //=> to play the sound I chose in the crash
-                setTimeout(() => {
-                    alert("crash");
-                }, 5)
-                window.location.reload();
-            }
-        }
-        if (this.y -10 <= obstacle.y - obstacle.height && this.y -10 >= obstacle.y) {
-            //x axis
-            if (this.x >= obstacle.x && this.x <= obstacle.x + obstacle.width) {
-                //this.sound(play) //=> to play the sound I chose in the crash
-                setTimeout(() => {
-                    alert("crash");
-                }, 5)
-                window.location.reload();
-            }
-        }
-        if (this.x-10 <= obstacle.x - obstacle.width && this.x >= obstacle.x) {
+        //starts here
+            let playerLeft = this.x;
+            let playerRight = this.x + this.width;
+            let playerTop = this.y;
+            let playerBottom = this.y + this.width;
+            let obstacleLeft = obstacle.x;
+            let obstacleRight = obstacle.x + obstacle.width;
+            let obstacleTop = obstacle.y;
+            let obstacleBottom = obstacle.y + obstacle.width;
 
-            if (this.y >= obstacle.y && this.x <= obstacle.y + obstacle.height) {
-                //this.sound(play) //=> to play the sound I chose in the crash
+            let crossLeft = obstacleLeft <= playerRight && obstacleLeft >= playerLeft;
+            let crossRight = obstacleRight >= playerLeft && obstacleRight <= playerRight;
+            let crossBottom = obstacleBottom >= playerTop && obstacleBottom <= playerBottom;
+            let crossTop = obstacleTop <= playerBottom && obstacleTop >= playerTop;
+            if ((crossLeft || crossRight) && (crossBottom || crossTop)) {
                 setTimeout(() => {
-                    alert("crash");
+                    alert("you killed luke, shame on you.");
                 }, 5)
                 window.location.reload();
             }
-        }
-        if (this.x -10<= obstacle.x + obstacle.width && this.x >= obstacle.x) {
-
-            if (this.y >= obstacle.y && this.x <= obstacle.y + obstacle.height) {
-                //this.sound(play) //=> to play the sound I chose in the crash
-                setTimeout(() => {
-                    alert("crash");
-                }, 5)
-                window.location.reload();
-            }
-        }
+            return false;
+        //ends above
     }
 }

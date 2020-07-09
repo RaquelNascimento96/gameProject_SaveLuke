@@ -2,7 +2,7 @@ class Game {
     constructor() {
         this.canvas = undefined;
         this.ctx = undefined;
-        this.luke = new Player(this, 475, 100, 100, 100);
+        this.luke = new Player(this, 475, 100, 90, 90);
         this.mountain = [];
         this.tree = [];
         this.snow = [];
@@ -36,18 +36,24 @@ class Game {
                 this.mountain[i].drawMountain();
                 this.luke.collision(this.mountain[i]);
                 //how to remove obstacles once they never collided with the car, and are about to leave the canvas
-                // if (this.obstacles[i].y > 800) {
-                //     this.obstacles.splice(i, 1)
-                // }
+                if (this.mountain[i].y < -100) {
+                    this.mountain.splice(i, 1)
+                }
             }
             for (let i=0; i<this.tree.length; i++) {
                 this.tree[i].moveTree();
                 this.tree[i].drawTree();
                 this.luke.collision(this.tree[i]);
+                if (this.tree[i].y < -100) {
+                    this.tree.splice(i, 1)
+                }
             }
             for (let i=0; i<this.snow.length; i++) {
                 this.snow[i].moveSnow();
                 this.snow[i].drawSnow()
+                if (this.snow[i].y > 560) {
+                    this.snow.splice(i, 1)
+                }
             }
         },1000/60)
 
@@ -73,7 +79,7 @@ class Game {
 
         setTimeout(() => {
             this.createMountain();
-        }, 1500)
+        }, 1000)
         console.log("new mountains created:", this.mountain)
     }
 
@@ -84,7 +90,7 @@ class Game {
 
         setTimeout(() => {
             this.createTree();
-        }, 1000)
+        }, 9000)
         console.log("new trees created:", this.tree)
     }
 
@@ -95,7 +101,7 @@ class Game {
 
         setTimeout(() => {
             this.createSnow();
-        }, 900)
+        }, 300)
         console.log("new snow flakes created:", this.snow)
      }
     
