@@ -1,14 +1,99 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Press+Start+2P&family=Rubik:wght@300&display=swap');
+
 
 body {
     font-family: 'Press Start 2P', cursive;
+    background-image: url("/images/snowBack.jpg");
+    background-repeat: no-repeat;
+    background-size: 1900px;
 }
 
-#first-div {
+h2 {
+    font-size: 60px;
+    color: #3D90AA;
+}
+
+#first-screen {
+    height: 80vh;
+    margin: 2% 15%;
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+#first-screen p {
+    font-size: medium;
+    color: #525252;
+    line-height: 40px;
+    text-align: center;
+    padding: 20px;
+    margin: 40px 0px;
+}
+
+#start-button {
+    background-color: #3D90AA;
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    padding: 20px;
+}
+
+#game-screen h2 {
+    font-size: 40px;
+    text-align: center;
+}
+
+#gameOver-screen {
+    height: 80vh;
+    margin: 2% 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+#gameOver-screen h2 {
+    font-size: 40px;
+    text-align: center;
+}
+
+#tryAgain-button {
+    background-color: #3D90AA;
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    padding: 20px;
+}
+
+#gameOver-screen img {
+    margin: 40px 0px;
+}
+
+#win-screen {
+    height: 80vh;
+    margin: 2% 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+#win-screen h2 {
+    font-size: 40px;
+    text-align: center;
+}
+
+#win-screen img {
+    margin: 40px 0px;
+}
+
+#playAgain-button {
+    background-color: #3D90AA;
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    padding: 20px;
 }
 
 .game-canva {

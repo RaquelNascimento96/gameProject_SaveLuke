@@ -25,7 +25,16 @@ window.onload = function () {
 //     let victoryScreen
 
 //     function createSplashScreen() {
-//         splashScreen = buildScreen ("")
+//         splashScreen = buildScreen (" 
+/*     <div id="first-screen">
+        <h2>Save Luke!</h2>
+        <p> Luke went skiing with his friends and forgot he doesn't actually know how to ski... 
+        <br>Help Luke get to safety, by moving the arrows left and right to avoid trees and mountains!
+        </p>
+        <button id="start-button">Press here to start</button>
+    </div> 
+*/
+//")
 //         mainContainer.appendChild(splashScreen)
 //         startButton.addEventListener('click', function() {
 // 			start();
@@ -36,7 +45,16 @@ window.onload = function () {
 //     }
     
 //     function createGameScreen() {
-//         gameScreen = buildScreen("")
+//         gameScreen = buildScreen("
+/*
+    <div id="game-screen">
+            <h2>Save Luke!</h2>
+        <div class="game-canva">
+        <canvas id="canvas" width="1200" height="550"></canvas>
+        </div>
+    </div>
+*/
+//")
 //         mainContainer.appendChild(gameScreen)
 //         return gameScreen
 //     }
@@ -44,7 +62,15 @@ window.onload = function () {
 // 		gameScreen.remove();
 //     }
 //     function createGameOverScreen() {
-//         gameOverScreen = buildScreen("")
+//         gameOverScreen = buildScreen("
+/*
+    <div id="gameOver-screen">
+            <h2>Luke didn't make it :(</h2>
+            <img src="/images/deadInside.gif">
+            <button id="tryAgain-button">Try again</button>
+    </div>
+*/
+//")
 //         mainContainer.appendChild(gameOverScreen)
         
 //         let tryAgaintBtn = gameOverScreen.querySelector('button');
@@ -57,7 +83,15 @@ window.onload = function () {
 // 		gameOverScreen.remove();
 //     }
 //     function createVictoryScreen() {
-//         victoryScreen = buildScreen("")
+//         victoryScreen = buildScreen("
+/*
+    <div id="win-screen">
+            <h2>Luke is safe! You rock</h2>
+            <img src="/images/party.gif">
+            <button id="playAgain-button">Play again</button>
+    </div>
+*/
+//")
 //         mainContainer.appendChild(victoryScreen)
         
 //         let restartBtn = gameOverScreen.querySelector('button');
