@@ -8,7 +8,7 @@ class Tree extends Element {
         this.img = new Image();
     }
     drawTree() {
-        this.img.src = "images/tree.png";
+        this.img.src = "/images/tree.png";
         this.game.ctx.drawImage(
             this.img, this.x, this.y, this.width, this.height
         )

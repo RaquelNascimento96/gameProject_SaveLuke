@@ -8,7 +8,7 @@ class Snow extends Element {
         this.img = new Image();
     }
     drawSnow() {
-        this.img.src = "images/snow.png";
+        this.img.src = "/images/snow.png";
         this.game.ctx.drawImage(
             this.img, this.x, this.y, this.width, this.height
         )

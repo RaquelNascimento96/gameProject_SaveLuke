@@ -8,7 +8,7 @@ class Mountain extends Element {
         this.img = new Image();
     }
     drawMountain() {
-        this.img.src = "images/mountain.png";
+        this.img.src = "/images/mountain.png";
         this.game.ctx.drawImage(
             this.img, this.x, this.y, this.width, this.height
         )
