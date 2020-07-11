@@ -20,7 +20,7 @@ class Player extends Element {
         }
     }
     moveDown() {
-        if (this.y<300) {
+        if (this.y<250) {
             this.y += 0.5;
         }
     }
@@ -42,7 +42,7 @@ class Player extends Element {
             if ((crossLeft || crossRight) && (crossBottom || crossTop)) {
                 setTimeout(() => {
                     alert("you killed luke, shame on you.");
-                }, 5)
+                }, 10)
                 window.location.reload();
             }
             return false;

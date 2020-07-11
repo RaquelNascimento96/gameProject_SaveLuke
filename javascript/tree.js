@@ -3,8 +3,8 @@ class Tree extends Element {
         super(game);
         this.x = Math.floor(Math.random() * 1000 + 30);
         this.y =800;
-        this.width = 100;
-        this.height = 100;
+        this.width = 150;
+        this.height = 150;
         this.img = new Image();
     }
     drawTree() {

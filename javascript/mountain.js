@@ -3,7 +3,7 @@ class Mountain extends Element {
         super(game);
         this.x = Math.floor(Math.random() * 1000 + 30);
         this.y = 750;
-        this.width = 200;
+        this.width = 150;
         this.height = 150;
         this.img = new Image();
     }
