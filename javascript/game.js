@@ -104,5 +104,13 @@ class Game {
         }, 300)
         console.log("new snow flakes created:", this.snow)
      }
+     
+     gameOverCallback () {
+        this.gameOver();
+     }
+
+     gameWinCallBack () {
+
+     }
     
  }

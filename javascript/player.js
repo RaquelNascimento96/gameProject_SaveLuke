@@ -1,6 +1,8 @@
 class Player extends Element {
     constructor(game,x,y,w,h) {
         super(game,x,y,w,h);
+        this.gameIsOver = undefined;
+        this.gameIsWin = undefined;
     }
     move() {
         document.onkeydown = event => {
@@ -24,6 +26,11 @@ class Player extends Element {
             this.y += 0.5;
         }
     }
+
+    gameOver () {
+        this.gameOver = true
+    }
+
     collision(obstacle) {
         //starts here
             let playerLeft = this.x;
@@ -41,7 +48,7 @@ class Player extends Element {
             let crossTop = obstacleTop <= playerBottom && obstacleTop >= playerTop;
             if ((crossLeft || crossRight) && (crossBottom || crossTop)) {
                 setTimeout(() => {
-                    alert("you killed luke, shame on you.");
+                    this.gameOver();
                 }, 10)
                 window.location.reload();
             }
