@@ -69,7 +69,7 @@ class Game {
     }
 
      drawLuke() {
-         this.luke.drawElement("/images/luke.png");
+         this.luke.drawElement("images/luke.png");
      }
 
     createMountain() {

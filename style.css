@@ -3,7 +3,7 @@
 
 body {
     font-family: 'Press Start 2P', cursive;
-    background-image: url("/images/snowBack.jpg");
+    background-image: url("images/snowBack.jpg");
     background-repeat: no-repeat;
     background-size: 1900px;
 }
