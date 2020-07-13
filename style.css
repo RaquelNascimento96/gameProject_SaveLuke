@@ -40,8 +40,17 @@ h2 {
 }
 
 #game-screen h2 {
-    font-size: 40px;
+    font-size: 25px;
     text-align: center;
+}
+
+#timer {
+    color: #3D90AA;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
 }
 
 #gameOver-screen {

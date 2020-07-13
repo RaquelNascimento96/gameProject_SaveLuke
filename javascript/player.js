@@ -1,8 +1,11 @@
 class Player extends Element {
     constructor(game,x,y,w,h) {
         super(game,x,y,w,h);
-        this.gameIsOver = undefined;
-        this.gameIsWin = undefined;
+
+        //Game flags
+        // this.gameIsOver = false;
+        // this.gameIsWon = false;
+        // this.gameStop = false;
     }
     move() {
         document.onkeydown = event => {
@@ -25,34 +28,5 @@ class Player extends Element {
         if (this.y<250) {
             this.y += 0.5;
         }
-    }
-
-    gameOver () {
-        this.gameOver = true
-    }
-
-    collision(obstacle) {
-        //starts here
-            let playerLeft = this.x;
-            let playerRight = this.x + this.width;
-            let playerTop = this.y;
-            let playerBottom = this.y + this.width;
-            let obstacleLeft = obstacle.x;
-            let obstacleRight = obstacle.x + obstacle.width;
-            let obstacleTop = obstacle.y;
-            let obstacleBottom = obstacle.y + obstacle.width;
-
-            let crossLeft = obstacleLeft <= playerRight && obstacleLeft >= playerLeft;
-            let crossRight = obstacleRight >= playerLeft && obstacleRight <= playerRight;
-            let crossBottom = obstacleBottom >= playerTop && obstacleBottom <= playerBottom;
-            let crossTop = obstacleTop <= playerBottom && obstacleTop >= playerTop;
-            if ((crossLeft || crossRight) && (crossBottom || crossTop)) {
-                setTimeout(() => {
-                    this.gameOver();
-                }, 10)
-                window.location.reload();
-            }
-            return false;
-        //ends above
     }
 }

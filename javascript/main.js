@@ -46,8 +46,14 @@ function buildScreen (htmlString) {
      function createGameScreen() {
          gameScreen = buildScreen(`<div id="game-screen">
             <h2>Save Luke!</h2>
+            <div id="timer">
+            <p>Timer
+            <span id="minDec" class="number">0</span><span id="minUni" class="number">0</span><span>:</span
+            ><span id="secDec" class="number">0</span><span id="secUni" class="number">0</span>
+            </p>
+    </div>
         <div class="game-canva">
-        <canvas id="canvas" width="1200" height="550"></canvas>
+        <canvas id="canvas" width="1300" height="550"></canvas>
         </div>
     </div>`)
 
@@ -56,7 +62,7 @@ function buildScreen (htmlString) {
      }
     
      function removeGameScreen() {
- 		gameScreen.remove();
+         gameScreen.remove();
      }
     
      function createGameOverScreen() {
@@ -65,20 +71,20 @@ function buildScreen (htmlString) {
             <img src="/images/deadInside.gif">
             <button id="tryAgain-button">Try again</button>
     </div>`)
-         
+
          mainContainer.appendChild(gameOverScreen)
          
-         let tryAgaintBtn = gameOverScreen.querySelector('tryAgain-button');
+         let tryAgaintBtn = document.getElementById("tryAgain-button");
          
-         tryAgaintBtn.addEventListener('click', function(){
- 			startGame(gameOverScreen)
- 		});
+         tryAgaintBtn.addEventListener('click', function() {
+            startGame();
+        });
 
      }
      function removeGameOverScreen() {
-        if (gameOverScreen !== undefined) {
+         if (gameOverScreen !== undefined) {
 			gameOverScreen.remove();
-		}
+		 }
      }
 
     //  function createVictoryScreen() {
@@ -106,17 +112,17 @@ function buildScreen (htmlString) {
 
          game = new Game();
          game.gameScreen = createGameScreen();
-         game.init()
-         game.gameOverCallback(gameOver); 
+         game.init();
+
+//         game.gameOverCallback(gameOver); 
 //         game.gameWinCallback(gameVictory);
-
-
      }
 
-     function gameOver () {
-         removeGameScreen();
-         createGameOverScreen();
-     }
+     callGameOver = () =>{
+        removeGameScreen();
+        return createGameOverScreen()
+    
+      }
 
     //  function gamevictory () {
     //      removeGameScreen();

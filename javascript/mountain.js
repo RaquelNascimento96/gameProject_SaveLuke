@@ -2,9 +2,9 @@ class Mountain extends Element {
     constructor(game) {
         super(game);
         this.x = Math.floor(Math.random() * 1000 + 30);
-        this.y = 750;
-        this.width = 150;
-        this.height = 150;
+        this.y =800;
+        this.width = 180;
+        this.height = 180;
         this.img = new Image();
     }
     drawMountain() {
@@ -16,7 +16,7 @@ class Mountain extends Element {
     //method to move obstacles randomly on the y axis 
       moveMountain() {
           if (Math.floor(Math.random() * 20) % 3 === 0) {
-              this.y -= 5;
+              this.y -= 7;
               //this.x += 5;
           }
       }
