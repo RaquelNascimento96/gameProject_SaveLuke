@@ -68,7 +68,7 @@ function buildScreen (htmlString) {
      function createGameOverScreen() {
          gameOverScreen = buildScreen(`<div id="gameOver-screen">
             <h2>Luke didn't make it :(</h2>
-            <img src="/images/deadInside.gif">
+            <img src="deadInside.gif">
             <button id="tryAgain-button">Try again</button>
     </div>`)
 
