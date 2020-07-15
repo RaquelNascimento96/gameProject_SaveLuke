@@ -72,7 +72,7 @@ function buildScreen (htmlString) {
             <button id="tryAgain-button">Try again</button>
     </div>`)
 
-         mainContainer.appendChild(gameOverScreen)
+        mainContainer.appendChild(gameOverScreen)  
          
          let tryAgaintBtn = document.getElementById("tryAgain-button");
          
@@ -114,13 +114,11 @@ function buildScreen (htmlString) {
          game.gameScreen = createGameScreen();
          game.init();
 
-//         game.gameOverCallback(gameOver); 
-//         game.gameWinCallback(gameVictory);
      }
 
      callGameOver = () =>{
         removeGameScreen();
-        return createGameOverScreen()
+        createGameOverScreen()
     
       }
 

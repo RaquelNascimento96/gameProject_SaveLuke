@@ -37,6 +37,7 @@ class Game {
     }
 
     start(){
+        
         let startInterval = setInterval(() => {
             this.clearCanva()
             this.drawBackground()
@@ -59,7 +60,7 @@ class Game {
                 this.tree[i].drawTree();
                 this.collision(this.tree[i]);
                 this.checkGameIsOver();
-                if (this.tree[i].y < -100) {
+                if (this.tree[i].y < -120) {
                     this.tree.splice(i, 1)
                 }
             }
@@ -71,10 +72,8 @@ class Game {
                 }
             }
             if (this.gameStop) {
-                const timeOut = -5; 
-                    setTimeout(() => {
-                        clearInterval(startInterval); 
-                    }, timeOut);
+                clearInterval(startInterval);
+                        //console.log("game over!!!!") 
              }
         },1000/60)
     }
@@ -142,10 +141,10 @@ class Game {
             let crossBottom = obstacleBottom >= playerTop && obstacleBottom <= playerBottom;
             let crossTop = obstacleTop <= playerBottom && obstacleTop >= playerTop;
             if ((crossLeft || crossRight) && (crossBottom || crossTop)) {
-                setTimeout(() => {
+                // setTimeout(() => {
                     this.gameStop = true
                     // this.gameIsOver = true
-                }, 5)
+                // }, 5)
     //            window.location.reload();
             }
             return false;
@@ -159,7 +158,7 @@ class Game {
      }
 
      gameOver () {
-         return callGameOver();
+         callGameOver();
      }
 
      //TIMER LOGIC
@@ -184,7 +183,4 @@ class Game {
     //   milDec.innerText = this.timer.twoDigitsNumber(this.timer.getMilSeconds())[0];
     // }
 
-        
-
-     
  }
