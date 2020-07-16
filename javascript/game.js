@@ -13,8 +13,6 @@ class Game {
         this.height = 550;
 
         //GAME FLAGS
-        this.gameIsOver = false;
-        this.gameIsWon = false;
         this.gameStop = false;
 
         // //TIMER
@@ -38,42 +36,47 @@ class Game {
 
     start(){
         
-        let startInterval = setInterval(() => {
-            this.clearCanva()
-            this.drawBackground()
-            this.drawLuke()
-            //this.timer.startClick(this.printTime)
-            this.luke.move();
-            this.luke.moveDown()
-            for (let i=0; i<this.mountain.length; i++) {
-                this.mountain[i].moveMountain();
-                this.mountain[i].drawMountain();
-                this.collision(this.mountain[i]);
-                this.checkGameIsOver()
-                //removing obstacles so they don't create huge arrays
-                if (this.mountain[i].y < -100) {
-                    this.mountain.splice(i, 1)
+        const startInterval = setInterval(() => {
+            if (!this.gameStop) {
+                this.clearCanva()
+                this.drawBackground()
+                this.drawLuke()
+                //this.timer.startClick(this.printTime)
+                this.luke.move();
+                this.luke.moveDown()
+                for (let i=0; i<this.mountain.length; i++) {
+                    this.mountain[i].moveMountain();
+                    this.mountain[i].drawMountain();
+                    this.collision(this.mountain[i]);
+                    //this.checkGameIsOver()
+                    //removing obstacles so they don't create huge arrays
+                    if (this.mountain[i].y < -100) {
+                        this.mountain.splice(i, 1)
+                    }
+                }
+                for (let i=0; i<this.tree.length; i++) {
+                    this.tree[i].moveTree();
+                    this.tree[i].drawTree();
+                    this.collision(this.tree[i]);
+                    //this.checkGameIsOver();
+                    if (this.tree[i].y < -120) {
+                        this.tree.splice(i, 1)
+                    }
+                }
+                for (let i=0; i<this.snow.length; i++) {
+                    this.snow[i].moveSnow();
+                    this.snow[i].drawSnow()
+                    if (this.snow[i].y > 560) {
+                        this.snow.splice(i, 1)
+                    }
                 }
             }
-            for (let i=0; i<this.tree.length; i++) {
-                this.tree[i].moveTree();
-                this.tree[i].drawTree();
-                this.collision(this.tree[i]);
-                this.checkGameIsOver();
-                if (this.tree[i].y < -120) {
-                    this.tree.splice(i, 1)
-                }
-            }
-            for (let i=0; i<this.snow.length; i++) {
-                this.snow[i].moveSnow();
-                this.snow[i].drawSnow()
-                if (this.snow[i].y > 560) {
-                    this.snow.splice(i, 1)
-                }
-            }
+            this.checkGameIsOver()
             if (this.gameStop) {
-                clearInterval(startInterval);
-                        //console.log("game over!!!!") 
+                const timeOut = 5; 
+                    setTimeout(() => {
+                        clearInterval(startInterval); 
+                    }, timeOut);
              }
         },1000/60)
     }
@@ -109,7 +112,7 @@ class Game {
 
         setTimeout(() => {
             this.createTree();
-        }, 9000)
+        }, 5000)
         console.log("new trees created:", this.tree)
     }
 
@@ -136,11 +139,12 @@ class Game {
             let obstacleTop = obstacle.y;
             let obstacleBottom = obstacle.y + obstacle.width;
 
-            let crossLeft = obstacleLeft <= playerRight && obstacleLeft >= playerLeft;
-            let crossRight = obstacleRight >= playerLeft && obstacleRight <= playerRight;
-            let crossBottom = obstacleBottom >= playerTop && obstacleBottom <= playerBottom;
-            let crossTop = obstacleTop <= playerBottom && obstacleTop >= playerTop;
-            if ((crossLeft || crossRight) && (crossBottom || crossTop)) {
+            let crossLeft = (obstacleLeft <= playerRight) && (obstacleLeft >= playerLeft);
+            let crossRight = (obstacleRight >= playerLeft) && (obstacleRight <= playerRight);
+            let crossBottom = (obstacleBottom >= playerTop) && (obstacleBottom <= playerBottom);
+            let crossTop = (obstacleTop <= playerBottom) && (obstacleTop >= playerTop);
+
+            if((crossLeft || crossRight) && (crossBottom || crossTop)) {
                 // setTimeout(() => {
                     this.gameStop = true
                     // this.gameIsOver = true
@@ -153,13 +157,13 @@ class Game {
     
     checkGameIsOver () {
          if(this.gameStop) {
-             return this.gameOver()
+             return callGameOver()
          }
      }
 
-     gameOver () {
-         callGameOver();
-     }
+    //  gameOver () {
+    //      callGameOver();
+    //  }
 
      //TIMER LOGIC
 

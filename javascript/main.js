@@ -39,6 +39,7 @@ function buildScreen (htmlString) {
  			startGame();
  		});
      }
+
      function removeSplashScreen() {
  		splashScreen.remove();
      }
@@ -72,19 +73,19 @@ function buildScreen (htmlString) {
             <button id="tryAgain-button">Try again</button>
     </div>`)
 
-        mainContainer.appendChild(gameOverScreen)  
+        mainContainer.appendChild(gameOverScreen)
+
+        let tryAgaintBtn = document.getElementById("tryAgain-button");
          
-         let tryAgaintBtn = document.getElementById("tryAgain-button");
-         
-         tryAgaintBtn.addEventListener('click', function() {
+        tryAgaintBtn.addEventListener('click', function() {
             startGame();
         });
 
      }
      function removeGameOverScreen() {
          if (gameOverScreen !== undefined) {
-			gameOverScreen.remove();
-		 }
+            gameOverScreen.remove();
+         }
      }
 
     //  function createVictoryScreen() {
