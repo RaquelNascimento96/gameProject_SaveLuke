@@ -24,6 +24,7 @@ class Game {
 
         //SOUNDS
         this.gameOverSound = new Audio('/sounds/goddamnit.mp3')
+        this.gameSound = new Audio('/sounds/starWarsTheForce.mp3')
     }
 
     init() {
@@ -35,6 +36,7 @@ class Game {
         this.createMountain();
         this.createTree()
         this.createSnow();
+        this.gameSound.play();
     }
 
     start(){
@@ -53,7 +55,7 @@ class Game {
                     this.collision(this.mountain[i]);
                     //this.checkGameIsOver()
                     //removing obstacles so they don't create huge arrays
-                    if (this.mountain[i].y < -100) {
+                    if (this.mountain[i].y < -200) {
                         this.mountain.splice(i, 1)
                     }
                 }
@@ -62,7 +64,7 @@ class Game {
                     this.tree[i].drawTree();
                     this.collision(this.tree[i]);
                     //this.checkGameIsOver();
-                    if (this.tree[i].y < -120) {
+                    if (this.tree[i].y < -200) {
                         this.tree.splice(i, 1)
                     }
                 }
@@ -75,6 +77,7 @@ class Game {
                 }
             }
             this.checkGameIsOver()
+            
             if (this.gameStop) {
                 const timeOut = 5; 
                     setTimeout(() => {
@@ -162,6 +165,7 @@ class Game {
          if(this.gameStop) {
             this.gameOverSound.volume=0.4
              this.gameOverSound.play()
+             this.gameSound.pause();
              setTimeout(() => {
                 return callGameOver()
              },500)
