@@ -21,6 +21,9 @@ class Game {
         // this.minUni = document.getElementById('minUni');
         // this.secDec = document.getElementById('secDec');
         // this.secUni = document.getElementById('secUni');
+
+        //SOUNDS
+        this.gameOverSound = new Audio('/sounds/goddamnit.mp3')
     }
 
     init() {
@@ -157,7 +160,11 @@ class Game {
     
     checkGameIsOver () {
          if(this.gameStop) {
-             return callGameOver()
+            this.gameOverSound.volume=0.4
+             this.gameOverSound.play()
+             setTimeout(() => {
+                return callGameOver()
+             },500)
          }
      }
 
