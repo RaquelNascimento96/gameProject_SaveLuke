@@ -16,7 +16,7 @@ class Snow extends Element {
     //method to move obstacles randomly on the y axis 
     moveSnow() {
         if (Math.floor(Math.random() * 10) % 2 === 0) {
-            this.y += 2;
+            this.y += 5;
         }
     }
 }

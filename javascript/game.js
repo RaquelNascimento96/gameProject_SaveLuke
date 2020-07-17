@@ -2,7 +2,7 @@ class Game {
     constructor() {
         this.canvas = undefined;
         this.ctx = undefined;
-        this.luke = new Player(this, 475, 100, 90, 90);
+        this.luke = new Player(this, 475, 90, 100, 100);
         this.mountain = [];
         this.tree = [];
         this.snow = [];
@@ -107,7 +107,7 @@ class Game {
 
         setTimeout(() => {
             this.createMountain();
-        }, 1000)
+        }, 700)
         console.log("new mountains created:", this.mountain)
     }
 
@@ -118,7 +118,7 @@ class Game {
 
         setTimeout(() => {
             this.createTree();
-        }, 5000)
+        }, 700)
         console.log("new trees created:", this.tree)
     }
 
@@ -157,11 +157,13 @@ class Game {
         //ends above
     }
 
+    //time
     printTimer () {
         let countdown =document.getElementById("time");
         countdown.innerHTML=this.timer.toFixed(0)
     }
     
+    //ending the game
     checkGameIsOver () {
         this.didYouWin()
          if(this.gameOver) {

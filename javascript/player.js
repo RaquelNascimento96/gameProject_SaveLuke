@@ -20,8 +20,8 @@ class Player extends Element {
         }
     }
     moveDown() {
-        if (this.y<250) {
-            this.y += 0.5;
+        if (this.y<200) {
+            this.y += 0.6;
         }
     }
 }
