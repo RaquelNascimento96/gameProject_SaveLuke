@@ -17,7 +17,6 @@ class Snow extends Element {
     moveSnow() {
         if (Math.floor(Math.random() * 10) % 2 === 0) {
             this.y += 2;
-            //this.x += 1;
         }
     }
 }

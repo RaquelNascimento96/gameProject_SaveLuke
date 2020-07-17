@@ -1,11 +1,6 @@
 class Player extends Element {
     constructor(game,x,y,w,h) {
         super(game,x,y,w,h);
-
-        //Game flags
-        // this.gameIsOver = false;
-        // this.gameIsWon = false;
-        // this.gameStop = false;
     }
     move() {
         document.onkeydown = event => {

@@ -1,14 +1,3 @@
-// window.onload = function () {
-//     //to start, we need to get the start button; when we click, it should start with our method
-//     document.getElementById("start-button").onclick = function(){
-//        start()
-//     }
-//     function start () {
-//         const myGame = new Game ();
-//         myGame.init();
-//     }
-// };
-
 
 function buildScreen (htmlString) {
      let div = document.createElement("div");
@@ -23,7 +12,7 @@ function buildScreen (htmlString) {
      let splashScreen
      let gameScreen
      let gameOverScreen
-     //let victoryScreen
+     let victoryScreen
 
      function createSplashScreen() {
          splashScreen = buildScreen(`<div id="first-screen">
@@ -48,9 +37,8 @@ function buildScreen (htmlString) {
          gameScreen = buildScreen(`<div id="game-screen">
             <h2>Save Luke!</h2>
             <div id="timer">
-            <p>Timer
-            <span id="minDec" class="number">0</span><span id="minUni" class="number">0</span><span>:</span
-            ><span id="secDec" class="number">0</span><span id="secUni" class="number">0</span>
+            <p>Time left: 
+            <span id="time">0</span>
             </p>
     </div>
         <div class="game-canva">
@@ -88,28 +76,31 @@ function buildScreen (htmlString) {
          }
      }
 
-    //  function createVictoryScreen() {
-    //      victoryScreen = buildScreen("<div id="win-screen">
-    //         <h2>Luke is safe! You rock</h2>
-    //         <img src="/images/party.gif">
-    //         <button id="playAgain-button">Play again</button>
-    // </div>")
+     function createVictoryScreen() {
+         victoryScreen = buildScreen(`<div id="win-screen">
+            <h2>Luke is safe! You rock</h2>
+            <img src="/images/party.gif">
+            <button id="playAgain-button">Play again</button>
+    </div>`)
          
-    //      mainContainer.appendChild(victoryScreen)
+         mainContainer.appendChild(victoryScreen)
         
-    //      let restartBtn = gameOverScreen.querySelector('playAgain-button');
-    //      restartBtn.addEventListener('click', function(){
- 	// 		startGame()
- 	// 	});
-    //  }
-    //  function removeVictoryScreen() {
- 	// 	victoryScreen.remove();
-    //  }
+         let restartBtn = document.getElementById("playAgain-button");
+         
+         restartBtn.addEventListener('click', function() {
+             startGame();
+         });
+     }
+     function removeVictoryScreen() {
+        if (victoryScreen !== undefined) {
+            victoryScreen.remove();
+         }
+     }
 
      function startGame() {
          removeSplashScreen();
          removeGameOverScreen();
-         //removeVictoryScreen();
+         removeVictoryScreen();
 
          game = new Game();
          game.gameScreen = createGameScreen();
@@ -123,10 +114,11 @@ function buildScreen (htmlString) {
     
       }
 
-    //  function gamevictory () {
-    //      removeGameScreen();
-    //      createVictoryScreen();
-    //  }
+     callGameWin = () =>{
+       removeGameScreen();
+       createVictoryScreen()
+     }
+
     
     createSplashScreen()
 

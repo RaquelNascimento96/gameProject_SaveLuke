@@ -14,17 +14,16 @@ class Game {
 
         //GAME FLAGS
         this.gameStop = false;
+        this.gameOver = false;
 
         // //TIMER
-        // this.timer = new Chronometer();
-        // this.minDec = document.getElementById('minDec')
-        // this.minUni = document.getElementById('minUni');
-        // this.secDec = document.getElementById('secDec');
-        // this.secUni = document.getElementById('secUni');
+        this.timer = 20
+
 
         //SOUNDS
         this.gameOverSound = new Audio('/sounds/goddamnit.mp3')
         this.gameSound = new Audio('/sounds/starWarsTheForce.mp3')
+        this.gameWinSound = new Audio('/sounds/woohoo.mp3')
     }
 
     init() {
@@ -43,17 +42,19 @@ class Game {
         
         const startInterval = setInterval(() => {
             if (!this.gameStop) {
+                setTimeout(() => {
+                    this.timer -=(1/60)
+                }, 800);
+                this.printTimer ()
                 this.clearCanva()
                 this.drawBackground()
                 this.drawLuke()
-                //this.timer.startClick(this.printTime)
                 this.luke.move();
                 this.luke.moveDown()
                 for (let i=0; i<this.mountain.length; i++) {
                     this.mountain[i].moveMountain();
                     this.mountain[i].drawMountain();
                     this.collision(this.mountain[i]);
-                    //this.checkGameIsOver()
                     //removing obstacles so they don't create huge arrays
                     if (this.mountain[i].y < -200) {
                         this.mountain.splice(i, 1)
@@ -63,7 +64,6 @@ class Game {
                     this.tree[i].moveTree();
                     this.tree[i].drawTree();
                     this.collision(this.tree[i]);
-                    //this.checkGameIsOver();
                     if (this.tree[i].y < -200) {
                         this.tree.splice(i, 1)
                     }
@@ -151,18 +151,21 @@ class Game {
             let crossTop = (obstacleTop <= playerBottom) && (obstacleTop >= playerTop);
 
             if((crossLeft || crossRight) && (crossBottom || crossTop)) {
-                // setTimeout(() => {
-                    this.gameStop = true
-                    // this.gameIsOver = true
-                // }, 5)
-    //            window.location.reload();
+                    this.gameOver = true
             }
             return false;
         //ends above
     }
+
+    printTimer () {
+        let countdown =document.getElementById("time");
+        countdown.innerHTML=this.timer.toFixed(0)
+    }
     
     checkGameIsOver () {
-         if(this.gameStop) {
+        this.didYouWin()
+         if(this.gameOver) {
+             this.gameStop = true;
             this.gameOverSound.volume=0.4
              this.gameOverSound.play()
              this.gameSound.pause();
@@ -172,30 +175,14 @@ class Game {
          }
      }
 
-    //  gameOver () {
-    //      callGameOver();
-    //  }
-
-     //TIMER LOGIC
-
-        // let milDec = document.getElementById('milDec');
-        // let milUni = document.getElementById('milUni');
-
-    // printTime() {
-    //   this.printMinutes();
-    //   this.printSeconds();
-    // }
-    // printMinutes() {
-    //   this.minDec.innerText = this.timer.twoDigitsNumber(this.timer.getMinutes()).charAt(0);
-    //   this.minUni.innerText = this.timer.twoDigitsNumber(this.timer.getMinutes()).charAt(1);
-    // }
-    // printSeconds() {
-    //   this.secUni.innerText = this.timer.twoDigitsNumber(this.timer.getSeconds())[1];
-    //   this.secDec.innerText = this.timer.twoDigitsNumber(this.timer.getSeconds())[0];
-    // }
-    // function printMilliseconds() {
-    //   milUni.innerText = this.timer.twoDigitsNumber(this.timer.getMilSeconds())[1];
-    //   milDec.innerText = this.timer.twoDigitsNumber(this.timer.getMilSeconds())[0];
-    // }
+     didYouWin () {
+         if(this.timer<0) {
+             this.gameStop = true;
+             this.gameWinSound.volume =0.4;
+             this.gameWinSound.play();
+             this.gameSound.pause();
+             return callGameWin();
+         }
+     }
 
  }

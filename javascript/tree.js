@@ -17,7 +17,6 @@ class Tree extends Element {
     moveTree() {
         if (Math.floor(Math.random() * 20) % 3 === 0) {
             this.y -= 7;
-            //this.x += 5;
         }
     }
 }
