@@ -1,8 +1,7 @@
-# Project's name
-Save Luke
+# Save Luke
 
 ## Description
-Save Luke is a game where Luke (the player) is going down a mountain, and has to avoid mountains and trees (obstacles) in order to survive. If he doesn't collide with any obstacles before his 40 second time finishes, he lives (aka it’s victory). Otherwise, he dies and it's gameover.
+Save Luke is a game where Luke (the player) is going down a mountain, and has to avoid mountains and trees (obstacles) in order to survive. If he doesn't collide with any obstacles before timer reaches zero, he lives (aka it’s victory). Otherwise, he dies and it's gameover.
 
 
 ## MVP (DOM - CANVAS)
@@ -156,9 +155,9 @@ buildGameOverScreen()
 ### Git
 URls for the project repo and deploy
 [Link Repo](https://github.com/RaquelNascimento96/gameProject_SaveLuke)
-[Link Deploy](http://github.com)
+[Link Deploy](https://vigilant-wing-ecf596.netlify.app/)
 
 
 ### Slides
 URls for the project presentation (slides)
-[Link Slides.com](http://slides.com)
+[Link Slides.com](https://docs.google.com/presentation/d/1fBQUIaDMIxOjBHhSyT6H55ZEd1jRPCibCuhPC_mGgkU/edit?usp=sharing)
