@@ -8,14 +8,14 @@ Save Luke is a game where Luke (the player) is going down a mountain, and has to
 - The player (Luke) can move to the left and right sides
 - Obstacles appear randomly from the bottom and go up the whole canvas
 - Obstacles are deleted once they reach the end of the canvas
-- Background elements are created with obstacles logic, but without collision
+- Background elements (aka snow flakes) are created with obstacles logic, but without collision
 - If the player collides with an obstacle, dies and it’s game over
+- Timer - if the user reaches zero without collisions, wins
+- Sound effects for the background and victory and game-over scenarios
 
 ## Backlog
-- Timer - if the user reaches 0:00 without collisions, wins
-- Level of difficulty - obstacles appear faster in the final seconds
+- Introducing speed/dificulty - making obstacles appearing faster in the final seconds
 - Player changes direction when we press right or left keys
-- Sound effects for victory and game-over scenarios
 - Levels - with less time and more speed of the obstacles
 
 ## Data structure
@@ -24,33 +24,60 @@ Save Luke is a game where Luke (the player) is going down a mountain, and has to
 ```
     game () {
         constructor() {
-            this.canvas;
-            this.ctx;
-            this.luke;
-            this.mountains;
-            this.tress;
-            this.background;
-            this.x;
-            this.y;
-            this.width;
+            this.canvas
+            this.ctx
+            this.luke
+            this.mountain
+            this.tree
+            this.snow
+            this.background
+            this.x
+            this.y
+            this.width
             this.height
+    
+            //GAME FLAGS
+            this.gameStop
+            this.gameOver
+    
+            // //TIMER
+            this.timer
+    
+            //SOUNDS
+            this.gameOverSound
+            this.gameSound
+            this.gameWinSound
         }
     }
     init()
     start()
     drawBackground()
+    clearCanva()
     drawLuke()
     createMountain()
     createTree()
     createSnow()
-    clearCanva()
+    collision(obstacle)
+    printTimer ()
+    checkGameIsOver ()
+    didYouWin ()
 ```
 
 ### main.js
 ```
-buildSplashScreen()
-buildGameScreen()
-buildGameOverScreen()
+function buildScreen (htmlString)
+function main ()
+    createSplashScreen()
+    removeSplashScreen()
+    createGameScreen()
+    removeGameScreen()
+    createGameOverScreen()
+    removeGameOverScreen()
+    createVictoryScreen()
+    removeVictoryScreen()
+    startGame()
+    callGameOver()
+    callGameWin()
 ```
 
 ### element.js
@@ -74,7 +101,7 @@ buildGameOverScreen()
         constructor ()
     }
     move()
-    collision()
+    moveDown()
 ```
 
 ### mountain.js
@@ -82,8 +109,8 @@ buildGameOverScreen()
     mountain Extends element () {
         constructor()
     }
-    draw()
-    move()
+    drawMountain()
+    moveMountain()
 ```
 
 ### tree.js
@@ -91,8 +118,8 @@ buildGameOverScreen()
     tree Extends element () {
         constructor()
     }
-    draw()
-    move()
+    drawTree()
+    moveTree()
 ```
 
 ### snow.js
@@ -100,25 +127,16 @@ buildGameOverScreen()
     snow Extends element () {
         constructor()
     }
-    draw()
-    move()
+    drawSnow()
+    moveSnow()
 ```
 
 
 ## States & States Transitions
-
 - splashScreen
-  - drawSplashScreen ()
-  - addEventListener(startGame)
-  
-  
-- startGame
-  - drawGameScreen()
-  - game.init()
-  
-- gameOver()
-  - drawGameOverScreen()
-  - addEventListener(tryAgain) 
+- gameScreen
+- gameOverScreen
+- victoryScreen
 
 
 ## Task
@@ -154,10 +172,10 @@ buildGameOverScreen()
 
 ### Git
 URls for the project repo and deploy
-[Link Repo](https://github.com/RaquelNascimento96/gameProject_SaveLuke)
-[Link Deploy](https://vigilant-wing-ecf596.netlify.app/)
+- [Link Repo](https://github.com/RaquelNascimento96/gameProject_SaveLuke)
+- [Link Deploy](https://vigilant-wing-ecf596.netlify.app/)
 
 
 ### Slides
 URls for the project presentation (slides)
-[Link Slides.com](https://docs.google.com/presentation/d/1fBQUIaDMIxOjBHhSyT6H55ZEd1jRPCibCuhPC_mGgkU/edit?usp=sharing)
+- [Link Slides.com](https://docs.google.com/presentation/d/1fBQUIaDMIxOjBHhSyT6H55ZEd1jRPCibCuhPC_mGgkU/edit?usp=sharing)

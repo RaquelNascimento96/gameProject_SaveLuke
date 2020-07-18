@@ -6,9 +6,9 @@ class Tree extends Element {
         this.width = 105;
         this.height = 105;
         this.img = new Image();
+        this.img.src = '../images/tree.png';
     }
     drawTree() {
-        this.img.src = '../images/tree.png';
         this.game.ctx.drawImage(
             this.img, this.x, this.y, this.width, this.height
         )
