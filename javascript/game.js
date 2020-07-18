@@ -17,7 +17,7 @@ class Game {
         this.gameOver = false;
 
         // //TIMER
-        this.timer = 20
+        this.timer = 15
 
 
         //SOUNDS
