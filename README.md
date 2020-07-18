@@ -139,7 +139,7 @@ function main ()
 - victoryScreen
 
 
-## Task
+## Tasks
 - main - buildDom
 - main - buildSplashScreen
 - main - addEventListener
@@ -167,7 +167,7 @@ function main ()
 
 
 ### Trello
-[Link url](https://trello.com/b/6pWFei4C/project-1game-save-luke)
+- [Link url](https://trello.com/b/6pWFei4C/project-1game-save-luke)
 
 
 ### Git
@@ -178,4 +178,4 @@ URls for the project repo and deploy
 
 ### Slides
 URls for the project presentation (slides)
-- [Link Slides.com](https://docs.google.com/presentation/d/1fBQUIaDMIxOjBHhSyT6H55ZEd1jRPCibCuhPC_mGgkU/edit?usp=sharing)
+- [Link Slides](https://docs.google.com/presentation/d/1fBQUIaDMIxOjBHhSyT6H55ZEd1jRPCibCuhPC_mGgkU/edit?usp=sharing)
